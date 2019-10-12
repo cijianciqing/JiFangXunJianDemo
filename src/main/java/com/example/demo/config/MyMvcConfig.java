@@ -13,6 +13,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
 
         //返回登录页面
         registry.addViewController("/").setViewName("forward:/myIndex.html");
+        registry.addViewController("/ttt001").setViewName("aaa");
         //为什么/login不好用
         registry.addViewController("/login00").setViewName("login");
         //登录成功后返回页面
@@ -35,8 +36,9 @@ public class MyMvcConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         //addResourceHandler     是指你想在url请求的路径
-        //addResourceLocations   是图片存放的真实路径
-        registry.addResourceHandler("/js/**").addResourceLocations("classpath:/static/js");
-        registry.addResourceHandler("/img/**").addResourceLocations("classpath:/static/img");
+        //addResourceLocations   是图片存放的真实路径,可以是classpath:,也可以是file:
+        registry.addResourceHandler("/js/**").addResourceLocations("classpath:/static/js/");
+        registry.addResourceHandler("/img/**").addResourceLocations("classpath:/static/img/");
+        registry.addResourceHandler("/css/**").addResourceLocations("classpath:/static/css/");
     }
 }
